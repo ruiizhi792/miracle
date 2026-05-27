@@ -1,0 +1,32 @@
+5.25号
+在此之前，我和张大卫等人共同参与了一项论文，有关于用agent skills 构建可被执行的环境，投稿到EMNLP。根据我的理解和大部分大卫等人的总结，我们大概是提出了harness-native 范式，把 rawskill 转换为了标准化的，自包含，自验证的portable环境，本身具备了可移植的特性（portable），在环境上，我们尝试跑了一条闭环的数据构造流水线（任务合成 → 模拟 → 轨迹校验 → 边界能力检测 → 数据排序），用产出的数据训练小模型并在工具调用 benchmark 上验证有效性。
+
+Methodology paper + proof-of-concept evaluation。不主张大规模环境合成，不把环境数量当作 contribution， 因为本身大卫等人一开始创建了5000余条环境，但是实验时间不够了，所以只能忽略这部分内容。
+
+Harness-Native 范式 — Python 组装 → harness 子进程自主执行 → Python 结构验证。把开放性构造任务（环境合成、任务生成、轨迹校验、环境演化）外包给前沿代码智能体，零干预。
+Portable Environment Contract — 6 文件标准化格式，self-contained（SQLite + 标准库，无网络），self-verified（tests/ 是验收契约的一部分）。
+闭环高质量数据构造流水线 — 任务合成（harness-native） → 用户/助手模拟（普通 LLM rollout） → 轨迹校验（harness-native） → 边界能力检测 → 难度排序 → 训练数据。 
+
+剩余的摘抄内容，自己去github上面看
+
+我的工作，说实话，我的工作感觉啥也没干啊，也不能这么说，就是工作贡献其实很小，需要在这方面再做做文章。  
+
+目前比较我个人的尝试范围内比较有价值的，自主配置codex和对应组内的和购买的minimax 2.7& Qwen 3.2 Plus （这个其实挺平常的但是毕竟也是第一次做）。 拉τ2-bench 到本地并且自主调配MiniMax 模型跑测试集。通过github上面的agent配置，实现了搭建一个再输入prompt之后能够自主运作的分析CSV或者xlsx文件的agent。 
+
+然后看了看70来篇文章，精读了其中的2篇，WebGym: Scaling Training Environments for
+Visual Web Agents with Realistic Tasks /Agent-World: Scaling Real-World Environment Synthesis
+for Evolving General Agent Intelligence   （好吧，确实不太够） 
+
+同时大部分用AI整理成了文档，包含了MCP-Mark， τ2-bench，BFCL-V4的测试数据（其实大部分没有展示），创新点，开源数据和对于文章中环境构建的解析
+
+昨天（5.25号，上面的内容全部都是前期工作，是的，未来的我就是傻逼）唯一做的就是开了个会，看到了目前大部分的内容都是在修饰文章内容，做做八股范式的基础上了，大卫是真挺强的
+
+
+5.26
+
+开了最后一个碰头会，提了点问题，但其实大部分内容也就是格式上的了，八股这一块。 昨天做的内容主要有两个，第一个是把之前整理的资料放到github上面大卫的组里面了， 第二个就是找了一个自主分析数据的agent，在豆包等ai帮助下，多增添了支持数据类型： json，jsonl，db，querry（这个名忘了，具体上github上面找），然后加了个中英双语切换按钮。
+5.27
+今天尝试了两个项目，分别是ACE-step-1.5，本身是想做一个自己的AI音声训练架构，或者是那种集合的通过外挂或者本地算力部署来训练音声的，包含前端和后端的。 结果一搜，发现这里的税已经被收到3987年了，也太先进了，太好用了，我明明还是一知半解，略懂皮毛，就被直接打垮了
+
+第二个项目是想着接下来继续推进的，通过N8N做一个自己的本地化的那种stock analysis agent，做一个开源模型然后放github上面，一个是我确实有实际需求，在一个我发现这方面还没有一个完全如此权威的，可能确实是太敏感了，我也建议是尽量自己自搭吧
+争取明天能把N8N部署到本地，这样能省一笔钱，然后后续的基本思路就是通过联想这边买的token:Qwen算力和网上不知道能不能用的WealthSimple的半开源API进行一个自主分析，然后用邮件的方式进行返还？ 如果不现实的话，想要直接落地，我应该还有一些openai和gemini的token余额没用，慢慢来吧，道阻且长
