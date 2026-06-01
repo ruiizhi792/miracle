@@ -32,3 +32,21 @@ for Evolving General Agent Intelligence   （好吧，确实不太够）
 争取明天能把N8N部署到本地，这样能省一笔钱，然后后续的基本思路就是通过联想这边买的token:Qwen算力和网上不知道能不能用的WealthSimple的半开源API进行一个自主分析，然后用邮件的方式进行返还？ 如果不现实的话，想要直接落地，我应该还有一些openai和gemini的token余额没用，慢慢来吧，道阻且长
 5.28 
 基本是摆了一天，不是很舒服，唯一做到的事情就是不用N8N了，转用国内适配更好的Dify工作流来搭建，但是本身提供的工具有些低能。 可能之后在本地之后需要做更多适配
+
+
+5.29 
+做PPT，简单构建了Dify工具流
+
+
+6.1 
+
+方案 1：直接禁用 VSCode 的系统代理（推荐）
+打开 VSCode 设置（Ctrl+, / Cmd+,）
+搜索 http.proxy
+将 Http: Proxy 输入框完全清空（不要填任何内容）
+取消勾选 Http: Proxy Strict SSL
+搜索 http.proxySupport，设置为 off
+完全关闭 VSCode，重新打开后测试
+今天内容，skill完全没理解啊，明天看看吧，今天用自己的token跑了一个PPT出来，还真是能用，但是剩下的就不好评价了，内网使用的这个token最大的问题就是不让使用外部工具，这实在是....
+总之，明天看两篇论文，顺便把图打开，deepseek + chatgpt看看情况吧
+
